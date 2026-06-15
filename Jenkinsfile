@@ -45,7 +45,7 @@ pipeline {
                 sh '''
                 docker rm -f $CONTAINER_NAME || true
                 docker pull $IMAGE_NAME
-                docker run -d -p 8000:8000 --name $CONTAINER_NAME $IMAGE_NAME
+                docker run -d -p 8001:8000 --name $CONTAINER_NAME $IMAGE_NAME
                 '''
             }
         }
@@ -54,8 +54,8 @@ pipeline {
             steps {
                 sh '''
                 sleep 5
-                curl http://host.docker.internal:8000/
-                curl "http://host.docker.internal:8000/predict?value=1"
+                curl http://host.docker.internal:8001/
+                curl "http://host.docker.internal:8001/predict?value=1"
                 '''
             }
         }
