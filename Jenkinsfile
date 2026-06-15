@@ -54,8 +54,8 @@ pipeline {
             steps {
                 sh '''
                 sleep 5
-                curl http://host.docker.internal:8001/
-                curl "http://host.docker.internal:8001/predict?value=1"
+                curl http://host.docker.internal:8000/
+                curl "http://host.docker.internal:8000/predict?value=1"
                 '''
             }
         }
