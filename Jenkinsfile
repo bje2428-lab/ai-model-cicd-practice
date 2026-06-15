@@ -45,7 +45,7 @@ pipeline {
                 sh '''
                 docker rm -f $CONTAINER_NAME || true
                 docker pull $IMAGE_NAME
-                docker run -d -p 8001:8000 --name $CONTAINER_NAME $IMAGE_NAME
+                docker run -d --network molps-net -p 8001:8000 --name $CONTAINER_NAME $IMAGE_NAME
                 '''
             }
         }
